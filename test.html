@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>whee</title>
+<script src="machinist.js" type="text/javascript"></script>
+<script src="key.js" type="text/javascript"></script>
+<script src="sprite.js" type="text/javascript"></script>
+<script src="sound.js" type="text/javascript"></script>
+<script type="text/javascript">
+  guy = new Actor(function() {
+    this.sprite = new Sprite("test.png");
+    this.sound = new Sound("test.ogg");
+    this.x = 0;
+    this.y = 0;
+  }, function() {
+    if (key.up()) this.y -= 4;
+    if (key.down()) this.y += 4;
+    if (key.left()) this.x -= 4;
+    if (key.right()) this.x += 4;
+  });
+  
+  level1 = new Scene(guy);
+  
+  game("canvas", level1);
+</script>
+</head>
+
+<body>
+<canvas id="canvas" width="240" height="160"></canvas>
+</body>
+
+</html>
