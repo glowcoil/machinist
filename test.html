@@ -8,21 +8,25 @@
 <script src="sprite.js" type="text/javascript"></script>
 <script src="sound.js" type="text/javascript"></script>
 <script type="text/javascript">
-  guy = new Actor(function() {
-    this.sprite = new Sprite("test.png");
-    this.sound = new Sound("test.ogg");
-    this.x = 0;
-    this.y = 0;
-  }, function() {
-    if (key.up()) this.y -= 4;
-    if (key.down()) this.y += 4;
-    if (key.left()) this.x -= 4;
-    if (key.right()) this.x += 4;
-  });
-  
-  level1 = new Scene(guy);
-  
-  game("canvas", level1);
+guy = {
+  sprite: new Sprite("res/test.png"),
+  sound: new Sound("res/test.ogg"),
+  x: 0,
+  y: 0,
+  update: function() {
+    if (keys[key.up]) this.y -= 4;
+    if (keys[key.down]) this.y += 4;
+    if (keys[key.left]) this.x -= 4;
+    if (keys[key.right]) this.x += 4;
+  },
+  draw: function() {
+    this.sprite.draw(this.x, this.y);
+  }
+};
+
+level1 = new Scene(guy);
+
+game("canvas", level1);
 </script>
 </head>
 
