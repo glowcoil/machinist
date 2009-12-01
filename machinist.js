@@ -1,23 +1,12 @@
-function require(url) {
-  var script = document.createElement("script");
-  script.src = url;
-  script.type = "text/javascript";
-  document.getElementsByTagName("head")[0].appendChild(script);
-}
-
 function game(canvas, scene) {
   window.onload = function() {
-//    require("key.js");
-//    require("sprite.js");
-//    require("sound.js");
-    
     game.canvas = document.getElementById(canvas);
     game.ctx = game.canvas.getContext('2d');
     game.scene = scene;
 
     game.scene.init();
     setInterval(function() { game.scene.update(); }, 1000 / 60);
-    setInterval(function() { game.scene.draw(); }, 1000 / 30);
+    setInterval(function() { game.scene.draw(); }, 1000 / 60);
   }
 }
 
