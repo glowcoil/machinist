@@ -1,16 +1,25 @@
+function key(k) {
+  key.used[k] = true;
+  if (key.keys[k])
+    return true;
+}
+
 window.onkeydown = function(e) {
-  keys[e.which] = true;
-  return false;
+  key.keys[e.which] = true;
+  if (key.used[e.which]) return false;
 }
 window.onkeyup = function(e) {
-  keys[e.which] = false;
-  return false;
+  key.keys[e.which] = false;
+  if (key.used[e.which]) return false;
 }
 
-keys = [];
-for (var i = 0; i < 255; ++i) keys[i] = false;
+key.keys = [];
+for (var i = 0; i < 255; ++i) key.keys[i] = false;
 
-var key = {
+key.used = [];
+for (var i = 0; i < 255; ++i) key.used[i] = false;
+
+var keys = {
   cancel: 3,
   backspace: 8,
   tab: 9,

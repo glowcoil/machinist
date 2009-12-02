@@ -14,10 +14,10 @@ guy = {
   x: 0,
   y: 0,
   update: function() {
-    if (keys[key.up]) this.y -= 4;
-    if (keys[key.down]) this.y += 4;
-    if (keys[key.left]) this.x -= 4;
-    if (keys[key.right]) this.x += 4;
+    if (key(keys.up)) this.y -= 4;
+    if (key(keys.down)) this.y += 4;
+    if (key(keys.left)) this.x -= 4;
+    if (key(keys.right)) this.x += 4;
   },
   draw: function() {
     this.sprite.draw(this.x, this.y);
@@ -31,7 +31,7 @@ game("canvas", level1);
 </head>
 
 <body>
-<canvas id="canvas" width="240" height="160"></canvas>
+<canvas id="canvas" width="240" height="160">It's high time you switched to a decent browser.</canvas>
 </body>
 
 </html>
