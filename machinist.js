@@ -1,12 +1,24 @@
-function game(canvas, scene) {
-  window.onload = function() {
-    game.canvas = document.getElementById(canvas);
-    game.ctx = game.canvas.getContext('2d');
-    game.scene = scene;
-    
-    setInterval(function() { game.scene.update(); }, 1000 / 60);
-    setInterval(function() { game.scene.draw(); }, 1000 / 60);
+function load(u) {
+  for (var a = 0; a < arguments.length; ++a) {
+    var scriptTag = document.createElement("script");
+    scriptTag.src = arguments[a];
+    scriptTag.type = "text/javascript";
+    body = document.getElementsByTagName("body")[0];
+    body.appendChild(scriptTag);
   }
+}
+
+load( "key.js"
+    , "sprite.js"
+    , "sound.js");
+
+function game(canvas, scene) {
+  game.canvas = document.getElementById(canvas);
+  game.ctx = game.canvas.getContext('2d');
+  game.scene = scene;
+  
+  setInterval(function() { game.scene.update(); }, 1000 / 60);
+  setInterval(function() { game.scene.draw(); }, 1000 / 60);
 }
 
 game.changeScene = function(scene) {
