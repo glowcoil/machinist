@@ -1,4 +1,4 @@
-Machinist is a game engine for JavaScript. It uses features of HTML5 such as the new canvas and audio tags.
+Machinist is a game engine for JavaScript. It uses features of HTML5 such as the <canvas> and <audio> tags.
 
 The following is a small example featuring movement with the arrow keys and playing a sound when the spacebar is pressed:
 
