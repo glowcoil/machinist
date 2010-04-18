@@ -1,23 +1,23 @@
 function key(k) {
-  key.used[k] = true;
+  key.unused[k] = false;
   if (key.keys[k])
     return true;
 }
 
 window.onkeydown = function(e) {
   key.keys[e.which] = true;
-  if (key.used[e.which]) return false;
+  return key.unused[e.which];
 }
 window.onkeyup = function(e) {
   key.keys[e.which] = false;
-  if (key.used[e.which]) return false;
+  return key.unused[e.which];
 }
 
 key.keys = [];
 for (var i = 0; i < 255; ++i) key.keys[i] = false;
 
-key.used = [];
-for (var i = 0; i < 255; ++i) key.used[i] = false;
+key.unused = [];
+for (var i = 0; i < 255; ++i) key.unused[i] = true;
 
 var keys = {
   cancel: 3,
