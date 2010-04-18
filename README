@@ -24,3 +24,4 @@ The following is a small example featuring movement with the arrow keys and play
 
   game("canvas", level1);
 
+Game code must be `load`ed from an html file.
