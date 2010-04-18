@@ -1,23 +1,23 @@
-function() {
+(function() {
 
-  var keys = [];
-  for (var i = 0; i < 255; ++i) keys[i] = false;
+  var keyState = [];
+  for (var i = 0; i < 255; ++i) keyState[i] = false;
 
   var unused = [];
   for (var i = 0; i < 255; ++i) unused[i] = true;
 
-  function key(k) {
+  key = function(k) {
     unused[k] = false;
-    if (keys[k])
+    if (keyState[k])
       return true;
   }
 
   window.onkeydown = function(e) {
-    keys[e.which] = true;
+    keyState[e.which] = true;
     return unused[e.which];
   }
   window.onkeyup = function(e) {
-    keys[e.which] = false;
+    keyState[e.which] = false;
     return unused[e.which];
   }
 
@@ -136,4 +136,4 @@ function() {
     meta: 224
   };
 
-}();
+})();
