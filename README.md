@@ -20,10 +20,10 @@ guy = {
     this.sprite.draw(this.x, this.y);
   }
 };
-```
 
 level1 = new Scene(guy);
 
 game("canvas", level1);
+```
 
 Game code must be `load`ed from an html file.
