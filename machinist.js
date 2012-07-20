@@ -10,15 +10,14 @@ function load(u) {
 
 load( "key.js"
     , "sprite.js"
-    , "sound.js");
+    , "sound.js" );
 
 function game(canvas, scene) {
   game.canvas = document.getElementById(canvas);
   game.ctx = game.canvas.getContext('2d');
   game.scene = scene;
   
-  setInterval(function() { game.scene.update(); }, 1000 / 60);
-  setInterval(function() { game.scene.draw(); }, 1000 / 60);
+  setInterval(function() { game.scene.update(); game.scene.draw(); }, 1000 / 60);
 }
 
 game.changeScene = function(scene) {
